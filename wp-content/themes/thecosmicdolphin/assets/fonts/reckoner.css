@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'Reckoner';
+    src: local('Reckoner Regular'), local('Reckoner-Regular'), url('Reckoner.woff2') format('woff2'), url('Reckoner.woff') format('woff'), url('Reckoner.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Reckoner';
+    src: local('Reckoner Bold'), local('Reckoner-Bold'), url('Reckoner_Bold.woff2') format('woff2'), url('Reckoner_Bold.woff') format('woff'), url('Reckoner_Bold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: bold;
+}

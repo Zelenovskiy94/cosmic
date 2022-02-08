@@ -1,0 +1,36 @@
+2022-02-07T13:46:21+00:00 CRITICAL Uncaught Error: Call to undefined function thecosmicdolphin_posted_on() in E:\xampp\htdocs\cosmic\wp-content\themes\thecosmicdolphin\template-parts\content.php:25
+Stack trace:
+#0 E:\xampp\htdocs\cosmic\wp-includes\template.php(772): require()
+#1 E:\xampp\htdocs\cosmic\wp-includes\template.php(716): load_template('E:\\xampp\\htdocs...', false, Array)
+#2 E:\xampp\htdocs\cosmic\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#3 E:\xampp\htdocs\cosmic\wp-content\themes\thecosmicdolphin\index.php(40): get_template_part('template-parts/...', 'post')
+#4 E:\xampp\htdocs\cosmic\wp-includes\template-loader.php(106): include('E:\\xampp\\htdocs...')
+#5 E:\xampp\htdocs\cosmic\wp-blog-header.php(19): require_once('E:\\xampp\\htdocs...')
+#6 E:\xampp\htdocs\cosmic\index.php(17): require('E:\\xampp\\htdocs...')
+#7 {main}
+  thrown in E:\xampp\htdocs\cosmic\wp-content\themes\thecosmicdolphin\template-parts\content.php on line 25
+
+2022-02-07T13:47:16+00:00 CRITICAL Uncaught Error: Call to undefined function thecosmicdolphin_posted_by() in E:\xampp\htdocs\cosmic\wp-content\themes\thecosmicdolphin\template-parts\content.php:25
+Stack trace:
+#0 E:\xampp\htdocs\cosmic\wp-includes\template.php(772): require()
+#1 E:\xampp\htdocs\cosmic\wp-includes\template.php(716): load_template('E:\\xampp\\htdocs...', false, Array)
+#2 E:\xampp\htdocs\cosmic\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#3 E:\xampp\htdocs\cosmic\wp-content\themes\thecosmicdolphin\index.php(40): get_template_part('template-parts/...', 'post')
+#4 E:\xampp\htdocs\cosmic\wp-includes\template-loader.php(106): include('E:\\xampp\\htdocs...')
+#5 E:\xampp\htdocs\cosmic\wp-blog-header.php(19): require_once('E:\\xampp\\htdocs...')
+#6 E:\xampp\htdocs\cosmic\index.php(17): require('E:\\xampp\\htdocs...')
+#7 {main}
+  thrown in E:\xampp\htdocs\cosmic\wp-content\themes\thecosmicdolphin\template-parts\content.php on line 25
+
+2022-02-07T13:47:42+00:00 CRITICAL Uncaught Error: Call to undefined function thecosmicdolphin_post_thumbnail() in E:\xampp\htdocs\cosmic\wp-content\themes\thecosmicdolphin\template-parts\content.php:30
+Stack trace:
+#0 E:\xampp\htdocs\cosmic\wp-includes\template.php(772): require()
+#1 E:\xampp\htdocs\cosmic\wp-includes\template.php(716): load_template('E:\\xampp\\htdocs...', false, Array)
+#2 E:\xampp\htdocs\cosmic\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#3 E:\xampp\htdocs\cosmic\wp-content\themes\thecosmicdolphin\index.php(40): get_template_part('template-parts/...', 'post')
+#4 E:\xampp\htdocs\cosmic\wp-includes\template-loader.php(106): include('E:\\xampp\\htdocs...')
+#5 E:\xampp\htdocs\cosmic\wp-blog-header.php(19): require_once('E:\\xampp\\htdocs...')
+#6 E:\xampp\htdocs\cosmic\index.php(17): require('E:\\xampp\\htdocs...')
+#7 {main}
+  thrown in E:\xampp\htdocs\cosmic\wp-content\themes\thecosmicdolphin\template-parts\content.php on line 30
+
