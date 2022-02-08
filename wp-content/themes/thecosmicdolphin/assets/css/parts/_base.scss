@@ -12,15 +12,18 @@ body {
     text-size-adjust: 100%;
     font-family: 'Rajdhani', sans-serif;
     font-feature-settings: 'tnum' on, 'lnum' on;
-    color: $black-900;
     font-size: 16px;
+    color: $white;
+}
+body, html {
+    background-color: $black-1000;
 }
 
-#page>main {
-    padding-bottom: 80px;
-    @media(max-width: $mobile) {
-        padding-bottom: 32px;
-    }
+
+main {
+    padding-top: 72px;
+    height: 100vh;
+    box-sizing: border-box;
 }
 
 h1 {
@@ -118,6 +121,23 @@ h1,h2,.h3,.h4,h5,h6 {
     text-align: center;
 }
 
+.modal_bg {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(12px);
+    pointer-events: none;
+    opacity: 0;
+    transition: 0.3s ease;
+    z-index: 10;
+    &.active {
+        opacity: 1;
+    }
+}
+
 .p {
     font-size: 16px;
     line-height: 24px;
@@ -162,93 +182,54 @@ h1,h2,.h3,.h4,h5,h6 {
     }
 }
 .button {
-    width: 234px;
-    height: 48px;
-    border-radius: 12px;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    outline: none;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center; 
-    transition: 0.3s ease; 
-    text-transform: uppercase;
-    font-size: 16px;
-    text-decoration: none;
-    cursor: pointer;
-    &-large {
-        width: 392px;
-    }
-    &-md {
-        width: 180px;
-    }
-    &-small {
-        width: 112px;
-        height: 40px;
-        font-size: 14px;
-    }
- 
-        background-color: $white;
-        color: $black-1000;
-        border: 1px solid $black-900;
-        &:hover {
-            border-color: $black-1000;
-        }
-        &:active {
-            background-color: $gray;
-        }
-        &.disabled {
-            border-color: $black-200 ;
-            color: $dark_gray;
-        }
- 
-    &-dark {
-        background-color: $black-900;
-        color: $white;
-        border: 2px solid $black-900;
-        &:hover {
-            border-color: $black-400;
-        }
-        &:active {
-            border-color: $black-400;
-            background-color: $black-800;
-        }
-        &.disabled {
-            background-color: $gray;
-            border-color: $gray;
-            color: $black-900;
-        }
-    }
-    &-search {
-        height: 40px;
-        width: 179px;
-        color: $black-900;
-        background-color: $gray;
-        border: none;
-        font-weight: 600;
-        border-radius: 12px;
-        svg {
-            margin-right: 20px;
-            transform-origin: center;
-            transition: 0.3s ease;
-        }
-        &:hover {
-            svg {
-                transform: scale(1.1);
-            }
-        }
-        @media(max-width: $mobile) {
-            background: none;
-            font-size: 0;
-            text-indent: -9999px;
-            width: auto;
-            min-width: 25px !important;
-            svg {
-                margin-right: 0;
-            }
-        }
-    }
-
-
+    background: url('../images/button_bg/btn_menu_bg.svg') center no-repeat;
+    background-size: 100% 100%;
+    color: $white;
+    font-size: 18px;
+    width: 112px;
+    height: 48px;
+    font-family: 'Rajdhani', sans-serif;
 }
+h1.title-in-wrap {
+    font-weight: 600;
+    font-size: 56px;
+    line-height: 64px;
+    font-family: 'Rajdhani', sans-serif;
+}
+.title-in-wrap {
+    padding: 8px 32px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(13px);
+    display: block;
+    position: relative;
+
+    &:before,
+    &:after {
+        content: '';
+        width: 8px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        border: 1px solid $white;
+    }
+    &:before {
+        left: 0;
+        border-right: none;
+    }
+    &:after {
+        right: 0;
+        border-left: none;
+    }
+}
+
 input, textarea {
     background-color: $white;
     border: 1px solid $black-50;

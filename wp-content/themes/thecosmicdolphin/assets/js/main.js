@@ -1,59 +1,20 @@
 'use strict'
 jQuery(document).ready(function($){
 
-    var single_slider = new Swiper(".single-slider", {
-        pagination: {
-          el: ".swiper-pagination",
-        },
-      });
+    
 
-    $('body').on('click', '.btn-show-search', function(){
-      $(this).addClass('hide')
-      $('.btn-header-catalog').addClass('hide')
-      $('.header-search ').addClass('active')
-      $(this).next().addClass('active')
-    })
-
-    $(document).mouseup( function(e){ 
-      let div = $( ".header-search .search-form-container" ); 
-      if ( !div.is(e.target) 
-          && div.has(e.target).length === 0 ) { 
-        if(div.hasClass('active')){
-          div.removeClass('active')
-          $('.btn-header-catalog ').removeClass('hide')
-          $('.header-search ').removeClass('active')
-          setTimeout(function(){
-            $('.btn-show-search').removeClass('hide')
-          },200)
-        }
-      }
-    });
-
-    $('body').on('click', '.show-catalog_filter', function(){
-      let height = $('.wpfMainWrapper').height()
-      $(this).toggleClass('active')
-      $(this).parent().toggleClass('active')
-      $('.catalog_filter').css('max-height', '55px')
-      $('.catalog_filter.active').css('max-height', height + 'px')
-    })
-
-    $('body').on('click', '.burger-button', function(){
+    $('body').on('click', '.header-btn-menu', function(){
         $(this).toggleClass('active')
-        $('.mobile-menu').toggleClass('active')
-    })
-    $('body').on('click', '.btn-header-catalog', function(){
-        $(this).toggleClass('active')
-        $('.catalog-menu-desktop').toggleClass('active')
-        $('.banner-slider').toggleClass('none-pointer-events')
+        $('.nav-menu-container').toggleClass('active')
+        $('.modal_bg').toggleClass('active')
     })
     $(document).mouseup( function(e){ 
-      let div = $( ".catalog-menu-desktop" ); 
-      if ( !div.is(e.target) 
-          && div.has(e.target).length === 0 ) { 
-          if(div.hasClass('active')){
-            div.removeClass('active')
-            $('.btn-header-catalog').removeClass('active')
-            $('.banner-slider').removeClass('none-pointer-events')
+      let nav = $( ".nav-menu-container" ); 
+      if ( !nav.is(e.target) 
+          && nav.has(e.target).length === 0 ) { 
+          if(nav.hasClass('active')){
+            nav.removeClass('active')
+            $('.modal_bg').removeClass('active')
           }
       }
     });
