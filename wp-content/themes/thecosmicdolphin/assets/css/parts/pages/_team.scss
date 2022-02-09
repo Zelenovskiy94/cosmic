@@ -1,0 +1,76 @@
+.main-team-page {
+    background: url(../images/bg/team.webp) center;
+    background-size: 100% 100%;
+}
+.team-list-wrapper {
+    max-height: 100%;
+    width: 100%;
+    overflow: auto;
+    padding-right: 20px;
+}
+.team-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 24px;
+    column-gap: 48px;
+    &__item {
+        width: 232px;
+        height: 280px;
+        clip-path: polygon(12px 0, 100% 0, 100% 100%, 0 100%, 0 13px);
+        box-sizing: border-box;
+        overflow: hidden;
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            box-sizing: border-box;
+            border: 12px solid;
+            border-image: url(../images/border/border_team1.svg) 12;
+        }
+        img {
+            width: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        &__gradient {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: rgb(0,0,0);
+            background:linear-gradient(180deg, rgba(0, 0, 0, 0) 11.13%, #000000 84.64%)
+        }
+        &__text {
+            position: relative;
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+            padding-bottom: 26px;
+            &__name {
+                font-size: 36px;
+                line-height: 48px;
+                font-family: 'Reckoner', serif;
+                display: block;
+            }
+            &__position {
+                display: block;
+                padding: 0 9px;
+                border-left: 2px solid $white;
+                border-right: 2px solid $white;
+                background: rgba(255, 255, 255, 0.2);
+            }
+        }
+    }
+}

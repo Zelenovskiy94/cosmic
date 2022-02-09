@@ -26,12 +26,46 @@ function thecosmicdolphin_body_classes( $classes ) {
 }
 add_filter( 'body_class', 'thecosmicdolphin_body_classes' );
 
-/**
- * Add a pingback url auto-discovery header for single posts, pages, or attachments.
- */
-function thecosmicdolphin_pingback_header() {
-	if ( is_singular() && pings_open() ) {
-		printf( '<link rel="pingback" href="%s">', esc_url( get_bloginfo( 'pingback_url' ) ) );
+
+function true_breadcrumbs(){
+ 
+	$page_num = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+ 
+	$separator = '<span class="breadcrumbs__separator">// </span>'; 
+ 
+	if( is_front_page() ){
+ 
+		if( $page_num > 1 ) {
+			echo '<a href="' . site_url() . '">control_panel:</a>';
+		} else {
+			echo 'You are on the home page';
+		}
+ 
+	} else { 
+ 
+		echo '<a href="' . site_url() . '">control_panel:</a>' . $separator;
+ 
+		if ( is_search()) {
+			the_category( ', ' ); echo $separator; echo 'Search results';
+		} elseif( is_single() ){ 
+ 
+			the_category( ', ' ); echo $separator; the_title();
+ 
+		} elseif ( is_page() ){ 
+ 
+			the_title();
+ 
+		}  elseif ( is_404() ) { 
+ 
+			echo 'Error 404';
+ 
+		} 
+ 
+		if ( $page_num > 1 ) { 
+			echo ' (' . $page_num . ')';
+		}
+ 
 	}
 }
-add_action( 'wp_head', 'thecosmicdolphin_pingback_header' );
+
+

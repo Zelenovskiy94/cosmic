@@ -16,7 +16,12 @@ body {
     color: $white;
 }
 body, html {
-    background-color: $black-1000;
+    // background-color: $black-1000;
+    background-color: #ccc;
+    overflow: hidden;
+
+    scrollbar-color: $white rgba(255, 255, 255, 0.1);     /* «цвет ползунка» «цвет полосы скроллбара» */
+    scrollbar-width: thin  /* толщина */
 }
 
 
@@ -148,12 +153,12 @@ h1,h2,.h3,.h4,h5,h6 {
     }
 
     &_md {
-        font-size: 14px; 
+        font-size: 16px;
         line-height: 24px;
     }
 
     &_sm {
-        font-size: 11px;
+        font-size: 14px;
         line-height: 16px;
     }
 }
@@ -209,7 +214,6 @@ h1.title-in-wrap {
     backdrop-filter: blur(13px);
     display: block;
     position: relative;
-
     &:before,
     &:after {
         content: '';
@@ -229,6 +233,139 @@ h1.title-in-wrap {
         border-left: none;
     }
 }
+
+
+.tablet-container {
+    height: 100vh;
+    padding-top: 72px;
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .tablet-outer {
+        width: 1142px;
+        height: 716px;
+        max-height: calc(100% - 30px);
+        box-sizing: border-box;
+        border: 40px solid;
+        border-image: url(../images/tablet.svg) 40;
+        position: relative;
+       
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            width: 335px;
+            bottom: 0;
+            top: 0;
+            border: 30px solid;
+            z-index: 2;
+            pointer-events: none;
+        }
+        &::before {
+            left: 0;
+            border-image: url(../images/tablet_left_border.svg) 30;
+        }
+        &::after {
+            right: 0;
+            border-image: url(../images/tablet_right_border.svg) 30;
+        }
+    }
+    .tablet-inner {
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(6px);
+        position: relative;
+        z-index: 1;
+    }
+    .tablet-content {
+        margin: 30px;
+        display: flex;
+        justify-content: space-between;
+        height: calc(100vh - 72px - 110px - 28px - 77px);
+        max-height: calc(716px - 110px - 28px - 60px);
+        transform-origin: center;
+        opacity: 0;
+        transform: scale(0);
+        transition: 1.8s ease-in-out;
+        &.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+    .tablet-content__left {
+        max-width: 534px;
+        min-width: 534px;
+        width: 100%;
+        position: relative;
+        overflow: auto;
+    }
+    .tablet-content__right {
+        max-width: 416px;
+        width: 100%;
+        margin-left: 15px;
+        &__title {
+            color: $black-1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            height: 72px;
+            border: 5px solid;
+            border-image: url(../images/border/border_title.svg) 5 fill;
+            box-sizing: border-box;
+ 
+           
+        }
+        &__content {
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 16px;
+            padding: 24px;
+            padding-right: 1px;
+            padding-bottom: 15px;
+            height: calc(100% - 72px - 16px);
+            overflow: auto;
+            border: 5px solid;
+            border-image: url(../images/border/tablet_content_border.svg) 5 fill;
+            overflow: hidden;
+            .right-content {
+                max-height: 100%;
+                overflow: auto;
+                padding-right: 10px;
+            }
+        }
+    }
+}
+
+/* scrollbar start */
+::-webkit-scrollbar {
+    width: 4px; 
+    height: 4px; 
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: $white;
+    box-shadow: inset 1px 1px 10px #f3faf7;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: $black-1000;
+}
+/* scrollbar end */
+
+
+
+
+
+
+
+
+
 
 input, textarea {
     background-color: $white;
@@ -359,15 +496,11 @@ input, textarea {
     }
 }
 .breadcrumbs {
-    padding: 12px 0;
-    background-color: $black-900;
+    padding: 6px 16px;
     color: $white;
-    font-size: 14px;
-    .wrapper {
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-    }
+    font-size: 12px;
+    text-transform: uppercase;
+    display: flex;
     a {
         color: $black-200;
         text-decoration: none;
@@ -376,7 +509,7 @@ input, textarea {
     .breadcrumbs__separator {
         display: flex;
         align-items: center;
-        margin: 0 12px;
+        margin-right: 4px;
 
     }
     .breadcrumbs__separator + .breadcrumbs__separator {

@@ -30,11 +30,9 @@ function is_stock() {
 function breadcrumbs() {
     ?>
     <div class="breadcrumbs">
-        <div class="wrapper">
-            <?php echo true_breadcrumbs() ?>
-        </div>
+        <?php echo true_breadcrumbs() ?>
     </div>
     <?php
 };
 
-// add_action('breadcrumbs', 'breadcrumbs', 10);
+add_action('breadcrumbs', 'breadcrumbs', 10);

@@ -1,6 +1,11 @@
 'use strict'
 jQuery(document).ready(function($){
-
+  window.onload = function() {
+    if($('.tablet-content').length != 0) {
+      $('.tablet-content').addClass('active')
+    }
+  };
+  
     
 
     $('body').on('click', '.header-btn-menu', function(){
