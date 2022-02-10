@@ -1,15 +1,5 @@
 <?php 
 
-if ( ! function_exists( 'banner_slider' ) ) {
-    function banner_slider() { 
-        echo get_template_part( 'template-parts/banner-slider' );
-        
-    }
-}
-// add_action('banner_slider', 'banner_slider');
-
-
-
 function is_stock() {
     global $product;
 
@@ -36,3 +26,15 @@ function breadcrumbs() {
 };
 
 add_action('breadcrumbs', 'breadcrumbs', 10);
+
+
+//single product hooks
+add_action('woocommerce_template_single_title', 'woocommerce_template_single_title', 5);
+
+function cosmic_product_description() {
+    global $product;
+    echo $product->post->post_content;
+};
+add_action('cosmic_product_description', 'cosmic_product_description', 15);
+
+add_action('woocommerce_template_single_add_to_cart', 'woocommerce_template_single_add_to_cart', 15);

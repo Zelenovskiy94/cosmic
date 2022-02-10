@@ -1,0 +1,16 @@
+2022-02-10T09:47:46+00:00 CRITICAL Uncaught Error: Cannot use object of type WP_Post as array in E:\xampp\htdocs\cosmic\wp-content\themes\thecosmicdolphin\template-products.php:70
+Stack trace:
+#0 E:\xampp\htdocs\cosmic\wp-includes\template-loader.php(106): include()
+#1 E:\xampp\htdocs\cosmic\wp-blog-header.php(19): require_once('E:\\xampp\\htdocs...')
+#2 E:\xampp\htdocs\cosmic\index.php(17): require('E:\\xampp\\htdocs...')
+#3 {main}
+  thrown in E:\xampp\htdocs\cosmic\wp-content\themes\thecosmicdolphin\template-products.php on line 70
+
+2022-02-10T09:48:07+00:00 CRITICAL Uncaught Error: Cannot use object of type WP_Post as array in E:\xampp\htdocs\cosmic\wp-content\themes\thecosmicdolphin\template-products.php:70
+Stack trace:
+#0 E:\xampp\htdocs\cosmic\wp-includes\template-loader.php(106): include()
+#1 E:\xampp\htdocs\cosmic\wp-blog-header.php(19): require_once('E:\\xampp\\htdocs...')
+#2 E:\xampp\htdocs\cosmic\index.php(17): require('E:\\xampp\\htdocs...')
+#3 {main}
+  thrown in E:\xampp\htdocs\cosmic\wp-content\themes\thecosmicdolphin\template-products.php on line 70
+

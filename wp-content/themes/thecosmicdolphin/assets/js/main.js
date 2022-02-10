@@ -23,6 +23,8 @@ jQuery(document).ready(function($){
           }
       }
     });
+
+
  
           
     $('body').on( 'click', '.input_quantity button.plus,.input_quantity button.minus', function() {
@@ -71,5 +73,4 @@ $('.woocommerce-MyAccount-navigation ul').on('click', function() {
   }
     
 })
-
 },(jQuery))
