@@ -33,7 +33,7 @@ add_action('woocommerce_template_single_title', 'woocommerce_template_single_tit
 
 function cosmic_product_description() {
     global $product;
-    echo $product->post->post_content;
+    echo $product->post->post_content; 
 };
 add_action('cosmic_product_description', 'cosmic_product_description', 15);
 

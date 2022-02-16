@@ -1,0 +1,103 @@
+.mythology-content {
+    border: 12px solid;
+    border-image: url(../images/border/border-myth-content.svg) 14 fill;
+    padding: 12px;
+    padding-bottom: 14px;
+}
+
+.mythology-left {
+    margin-right: 38px;
+    &__image {
+        width: 188px;
+        height: 188px;
+        padding: 5px;
+        box-sizing: border-box;
+        border: 12px solid;
+        border-image: url(../images/border/border-image-mythology.svg) 12 ;
+        img {
+            max-width: 100%;
+        }
+    }
+ 
+}
+.mythology-right {
+    width: 75%;
+    position: relative;
+    max-width: 680px;
+    
+}
+
+.hide-text {
+    display: none;
+    position: absolute;
+    width: 100%;
+    column-count: 2;
+    column-gap: 24px;
+    white-space: normal;
+}
+.mythology-text-content {
+    max-width: 100%;
+    overflow: hidden;
+}
+.mythology-text-content,.hide-text  {
+    img {
+        max-width: 100%;
+        height: auto;
+        width: auto;
+        max-height: 200px;
+        &.alignleft {
+            float: left;
+            margin-right: 4px;
+        }
+    }
+    .swiper-slide {
+        height: 100%;
+        column-count: 2;
+        column-gap: 24px;
+        white-space: normal;
+    }
+
+}
+.mythology-nav {
+    height: 32px;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 32px;
+    margin-bottom: 20px;
+    .swiper-pagination,
+    .swiper-button-next, .swiper-button-prev {
+        position: static;
+    }
+    .swiper-button-next, .swiper-button-prev {
+        width: 32px;
+        height: 32px;
+        display: block;
+        border: 2px solid;
+        border-image: url(../images/border/border-button-nav.svg) 2 fill;
+        cursor: pointer;
+        margin-top: 0;
+        &:after {
+            display: none;
+        }
+    }
+    .swiper-button-prev {
+        order: 1;
+        transform: rotate(180deg);
+    }
+    .swiper-button-next {
+        order: 3;
+    }
+    .swiper-pagination {
+        order: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 8px;
+        width: 56px;
+        padding: 4px 12px;
+        box-sizing: border-box;
+        background-color: $white;
+        color: $black-1000;
+        font-size: 20px;
+    }
+}

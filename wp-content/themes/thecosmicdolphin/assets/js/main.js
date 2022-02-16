@@ -73,4 +73,5 @@ $('.woocommerce-MyAccount-navigation ul').on('click', function() {
   }
     
 })
+
 },(jQuery))

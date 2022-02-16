@@ -198,13 +198,14 @@ h1, h2, h3, h4, h5, h6 {
 .button {
   cursor: pointer;
   border: none;
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.5);
   outline: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: url("../images/button_bg/btn_menu_bg.svg") center no-repeat;
-  background-size: 100% 100%;
+  clip-path: polygon(50% 0%, 100% 0, 100% 89%, 94% 100%, 0 100%, 0 6px, 6px 0);
+  border: 4px solid;
+  border-image: url("../images/button_bg/btn_menu_bg.svg") 4 fill;
   color: #ffffff;
   font-size: 18px;
   width: 112px;
@@ -256,6 +257,7 @@ h1.title-in-wrap {
 }
 .tablet-container .tablet-outer {
   width: 1142px;
+  max-width: 90%;
   height: 716px;
   max-height: calc(100% - 30px);
   box-sizing: border-box;
@@ -372,10 +374,10 @@ h1.title-in-wrap {
   margin-top: 16px;
   padding: 24px;
   padding-right: 1px;
-  padding-bottom: 15px;
+  padding-bottom: 20px;
   height: calc(100% - 72px - 16px);
   overflow: auto;
-  border: 5px solid;
+  border: 4px solid;
   border-image: url(../images/border/tablet_content_border.svg) 5 fill;
   overflow: hidden;
   position: relative;
@@ -428,8 +430,8 @@ h1.title-in-wrap {
 
 /* scrollbar end */
 input, textarea {
-  background-color: #ffffff;
-  border: 1px solid #DBDBDB;
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.5);
   box-sizing: border-box;
   border-radius: 12px;
   font-size: 16px;
@@ -635,6 +637,7 @@ label {
   width: 112px;
   height: 48px;
   font-weight: 16px;
+  background-color: transparent;
 }
 
 .nav-menu-container {
@@ -744,8 +747,20 @@ label {
   margin-top: 32px;
 }
 
+.main-mythology-page {
+  background: url(../images/bg/myth.png) center;
+  background-size: contain;
+}
+
 .single-product .tablet-container .tablet-content__left__container {
   max-height: calc(100% - 152px - 32px);
+  display: flex;
+  align-items: center;
+}
+.single-product .tablet-container .tablet-content__left__container .images .spinContainer .Magic360-container .Magic360 .m360-loader + div,
+.single-product .tablet-container .tablet-content__left__container .images .spinContainer .Magic360-container .Magic360 .m360-loader + span {
+  opacity: 0 !important;
+  pointer-events: none;
 }
 
 .right-content-add-cart {
@@ -805,6 +820,11 @@ label {
   width: 100%;
   max-width: 1060px;
   margin: 0 auto;
+}
+
+.main-contact-page {
+  background: url(../images/bg/bg_contact.jpg) center no-repeat;
+  background-size: cover;
 }
 
 .main-team-page {
@@ -884,4 +904,125 @@ label {
   border-left: 2px solid #ffffff;
   border-right: 2px solid #ffffff;
   background: rgba(255, 255, 255, 0.2);
+}
+
+.mythology-content {
+  border: 12px solid;
+  border-image: url(../images/border/border-myth-content.svg) 14 fill;
+  padding: 12px;
+  padding-bottom: 14px;
+}
+
+.mythology-left {
+  margin-right: 38px;
+}
+.mythology-left__image {
+  width: 188px;
+  height: 188px;
+  padding: 5px;
+  box-sizing: border-box;
+  border: 12px solid;
+  border-image: url(../images/border/border-image-mythology.svg) 12;
+}
+.mythology-left__image img {
+  max-width: 100%;
+}
+
+.mythology-right {
+  width: 75%;
+  position: relative;
+  max-width: 680px;
+}
+
+.hide-text {
+  display: none;
+  position: absolute;
+  width: 100%;
+  column-count: 2;
+  column-gap: 24px;
+  white-space: normal;
+}
+
+.mythology-text-content {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.mythology-text-content img, .hide-text img {
+  max-width: 100%;
+  height: auto;
+  width: auto;
+  max-height: 200px;
+}
+.mythology-text-content img.alignleft, .hide-text img.alignleft {
+  float: left;
+  margin-right: 4px;
+}
+.mythology-text-content .swiper-slide, .hide-text .swiper-slide {
+  height: 100%;
+  column-count: 2;
+  column-gap: 24px;
+  white-space: normal;
+}
+
+.mythology-nav {
+  height: 32px;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 32px;
+  margin-bottom: 20px;
+}
+.mythology-nav .swiper-pagination,
+.mythology-nav .swiper-button-next, .mythology-nav .swiper-button-prev {
+  position: static;
+}
+.mythology-nav .swiper-button-next, .mythology-nav .swiper-button-prev {
+  width: 32px;
+  height: 32px;
+  display: block;
+  border: 2px solid;
+  border-image: url(../images/border/border-button-nav.svg) 2 fill;
+  cursor: pointer;
+  margin-top: 0;
+}
+.mythology-nav .swiper-button-next:after, .mythology-nav .swiper-button-prev:after {
+  display: none;
+}
+.mythology-nav .swiper-button-prev {
+  order: 1;
+  transform: rotate(180deg);
+}
+.mythology-nav .swiper-button-next {
+  order: 3;
+}
+.mythology-nav .swiper-pagination {
+  order: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 8px;
+  width: 56px;
+  padding: 4px 12px;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 20px;
+}
+
+.main-company-page {
+  background: url(../images/bg/team.webp) center no-repeat;
+  background-size: cover;
+}
+.main-company-page .tablet-content__left__container__product {
+  height: calc(100vh - 72px - 110px - 28px - 77px);
+  max-height: 100%;
+  padding: 32px;
+  box-sizing: border-box;
+}
+.main-company-page .company-map {
+  width: 100%;
+  height: 100%;
+}
+.main-company-page .right-content {
+  padding-bottom: 24px;
 }/*# sourceMappingURL=style.min.css.map */

@@ -1,7 +1,22 @@
+.main-mythology-page {
+    background: url(../images/bg/myth.png) center;
+    background-size: contain;
+}
 .single-product {
     .tablet-container .tablet-content__left__container {
         max-height: calc(100% - 152px - 32px);
+        display: flex;
+        align-items: center;
+        .images .spinContainer .Magic360-container .Magic360 {
+            .m360-loader + div,
+            .m360-loader + span {
+                opacity: 0 !important;
+                pointer-events: none;
+            }
+        }
     }
+
+    
 }
 
 .right-content-add-cart {
@@ -51,3 +66,5 @@
         }
     }
 }
+
+

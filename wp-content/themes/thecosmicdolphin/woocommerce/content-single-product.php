@@ -34,12 +34,7 @@ if ( post_password_required() ) {
 <div id="product-<?php the_ID(); ?>" class="tablet-content">
 	<div class="tablet-content__left">
 		<div class="tablet-content__left__container">
-			<div class="product-slider-image">
-				<?php 
-				$image_Product = wp_get_attachment_image_src( get_post_thumbnail_id( $phone_image->ID ), 'single-post-thumbnail' );
-				?>
-				<img src="<?php  echo $image_Product[0]; ?>" alt="<?php the_title() ?>">
-			</div>
+		
 		<?php
 		/**
 		 * Hook: woocommerce_before_single_product_summary.
@@ -47,12 +42,13 @@ if ( post_password_required() ) {
 		 * @hooked woocommerce_show_product_sale_flash - 10
 		 * @hooked woocommerce_show_product_images - 20
 		 */
-		// do_action( 'woocommerce_before_single_product_summary' );
+		do_action( 'woocommerce_before_single_product_summary' );
 		?>
 		</div>
 		<?php
 		if($product->get_type() === 'phone_type') {
 			$attributes = get_field('attributes');
+			if($attributes) {
 			?>
 			<div class="attributes-gird-outer">
 				<div class="attributes-gird">
@@ -70,6 +66,7 @@ if ( post_password_required() ) {
 			</div>
 			
 			<?php
+			}
 		} else {
 
 		}
@@ -117,3 +114,4 @@ if ( post_password_required() ) {
 </div>
 
 <?php do_action( 'woocommerce_after_single_product' ); ?>
+

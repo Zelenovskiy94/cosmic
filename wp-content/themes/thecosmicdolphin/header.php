@@ -23,9 +23,9 @@
 <body <?php body_class(); ?>>
 <div class="modal_bg"></div>
 <header id="header">
-	<div class="header_logo">
+	<a href="<?php echo home_url()?>" class="header_logo">
 		<img src="<?php echo get_template_directory_uri() ?>/assets/images/logo.svg"/>
-	</div>
+	</a>
 	<button class="header-btn-menu button">
 		Menu
 
@@ -33,12 +33,12 @@
 	<div class="nav-menu-container">
 		<nav class="nav-menu">
 			<ul>
-				<li><a href="#">Products</a></li>
-				<li><a href="#">Team & Company</a></li>
+				<li><a href="<?php echo get_permalink( 36 ) ?>">Products</a></li>
+				<li><a href="<?php echo get_permalink( 16 ) ?>">Team & Company</a></li>
 				<li><a href="#">Contact Us</a></li>
 				<li><a href="#">Blog</a></li>
 				<li><a href="#">Shop</a></li>
-				<li><a href="#">History & Mithology</a></li>
+				<li><a href="<?php echo get_permalink( 59 ) ?>">History & Mithology</a></li>
 				<li><a href="#">Community interactive</a></li>
 				<li><a href="#">Legal</a></li>
 			</ul>

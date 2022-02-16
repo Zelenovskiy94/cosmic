@@ -1,0 +1,19 @@
+.main-company-page {
+    background: url(../images/bg/team.webp) center no-repeat;
+    background-size: cover;
+    .tablet-content__left__container__product {
+        height: calc(100vh - 72px - 110px - 28px - 77px);
+        max-height: 100%;
+        padding: 32px;
+        box-sizing: border-box;
+    }
+    .company-map {
+        width: 100%;
+        height: 100%;
+        // background: url(../images/map.svg) center no-repeat;
+    }
+    .right-content {
+        padding-bottom: 24px;
+    }
+}
+
