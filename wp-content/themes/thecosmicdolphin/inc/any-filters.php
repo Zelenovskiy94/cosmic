@@ -45,5 +45,17 @@ function woocommerce_custom_product_add_to_cart_text() {
 // Single Product Button Text
 add_filter( 'woocommerce_product_single_add_to_cart_text', 'custom_single_add_to_cart_text' );
 function custom_single_add_to_cart_text() {
-	return 'Add to basket';
+	return 'Add to cart';
+}
+
+
+// Hide option select item in woocommerce product type
+add_filter( 'product_type_selector', 'remove_product_types' );
+
+function remove_product_types( $types ){
+    unset( $types['grouped'] );
+    unset( $types['external'] );
+    unset( $types['variable'] );
+
+    return $types;
 }

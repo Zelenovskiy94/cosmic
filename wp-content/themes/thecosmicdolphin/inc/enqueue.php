@@ -18,8 +18,20 @@ function thecosmicdolphin_scripts() {
 
     wp_enqueue_script('jquery');
 
+
 	wp_enqueue_script( 'swiper-slider-script', 'https://unpkg.com/swiper@7/swiper-bundle.min.js', array(), _S_VERSION, 'all' );
 	
 	wp_enqueue_script( 'thecosmicdolphin-script', get_template_directory_uri() . '/assets/js/main.js', array(), _S_VERSION, true );
 }
 add_action( 'wp_enqueue_scripts', 'thecosmicdolphin_scripts' );
+
+function myajax_data(){
+
+    wp_localize_script( 'thecosmicdolphin-script', 'myajax',
+        array(
+            'url' => admin_url('admin-ajax.php')
+        )
+    );
+
+}
+add_action( 'wp_enqueue_scripts', 'myajax_data', 99 );

@@ -1,4 +1,18 @@
 .main-contact-page {
     background: url(../images/bg/bg_contact.jpg) center no-repeat;
     background-size: cover;
+    .contact-us-form {
+        border: 5px solid;
+        border-image: url(../images/border/border-contact-us.svg) 5 fill;
+        padding: 44px;
+        max-width: 572px;
+        width: 100%;
+        margin: 0 auto;
+        &__inner {
+            max-width: 420px;
+            width: 100%;
+            margin: 0 auto;
+
+        }
+    }
 }

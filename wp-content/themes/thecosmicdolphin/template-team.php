@@ -5,14 +5,17 @@ Template Name: Team page
 get_header();
 
 ?>
-<main class="main-team-page tablet-container">
+<?php 
+    $background_image = get_field('background');
+?>
+<main class="main-team-page tablet-container" style="<?php echo $background_image ? 'background: url('. $background_image .''  : '' ?>">
     <div class="tablet-outer">
         <div class="tablet-inner">
             <?php echo do_action('breadcrumbs') ?>
             <div class="tablet-content">
                 <div class="tablet-content__left">
-                    <div class="team-list-wrapper">
-                        <div class="team-list">
+                    <div class="team-list-wrapper animation-active-block">
+                        <div class="team-list ">
                             <?php
                                 $team_list = get_field('team');
                                 foreach($team_list as $team_person) {

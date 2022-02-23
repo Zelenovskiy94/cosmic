@@ -14,44 +14,78 @@
 
 get_header();
 ?>
+<main class="main-blog-page tablet-container" style="<?php echo $background_image ? 'background: url('. $background_image .''  : '' ?>">
+    <div class="tablet-outer">
+        <div class="tablet-inner">
+            <?php echo do_action('breadcrumbs') ?>
+            <div class="tablet-content">
+                <div class="tablet-content__blog__left">
+                    <h2 class="tablet-content__right__title shop-title">
+                        <?php single_post_title(); ?>
+                    </h2>
+					<div class="posts-outer">
+						<div class="blog-posts-container">
+							<?php
+							if ( have_posts() ) :
+								while ( have_posts() ) :
+									the_post();
 
-	<main id="primary" class="site-main">
+									get_template_part( 'template-parts/content', 'blog');
 
-		<?php
-		if ( have_posts() ) :
+								endwhile;
 
-			if ( is_home() && ! is_front_page() ) :
-				?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
-				<?php
-			endif;
+								the_posts_navigation();
 
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+							else :
 
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_type() );
+								get_template_part( 'template-parts/content', 'none' );
 
-			endwhile;
-
-			the_posts_navigation();
-
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
-		?>
-
-	</main><!-- #main -->
+							endif;
+							?>
+						
+						</div>
+						<div class="loader-filter-container">
+							<div class="loader-filter">
+								<div class="bar bar1"></div>
+								<div class="bar bar2"></div>
+								<div class="bar bar3"></div>
+								<div class="bar bar4"></div>
+								<div class="bar bar5"></div>
+								<div class="bar bar6"></div>
+								<div class="bar bar7"></div>
+								<div class="bar bar8"></div>
+							</div>
+						</div>
+					</div>
+					
+					
+					
+                </div>
+				<div class="tablet-content__blog__right">
+					<h2 class="tablet-content__right__title shop-title">
+                        <?php _e('Categories', 'thecosmicdolphins') ?>
+                    </h2>
+					<div class="posts-filter-container">
+						<?php
+							if( $terms = get_terms( array( 'taxonomy' => 'category', 'orderby' => 'name' ) ) )  :
+						?>
+						<div class="posts-filter__by-categories">
+							<div class="filter-post__category" data-value="all">All</div>
+							<?php 
+							foreach ( $terms as $term ) {
+								echo '<div class="filter-post__category" data-value="' . $term->term_id . '">' . $term->name . '</div>';
+							}	
+							?>
+						</div>
+						<?php 
+							endif;
+						?>
+					</div>
+				</div>
+            </div> 
+        </div>
+    </div>
+</main>
 
 <?php
-get_sidebar();
 get_footer();

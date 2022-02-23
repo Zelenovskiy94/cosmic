@@ -33,17 +33,20 @@ if ( post_password_required() ) {
 ?>
 <div id="product-<?php the_ID(); ?>" class="tablet-content">
 	<div class="tablet-content__left">
-		<div class="tablet-content__left__container">
-		
-		<?php
-		/**
-		 * Hook: woocommerce_before_single_product_summary.
-		 *
-		 * @hooked woocommerce_show_product_sale_flash - 10
-		 * @hooked woocommerce_show_product_images - 20
-		 */
-		do_action( 'woocommerce_before_single_product_summary' );
-		?>
+		<div class="tablet-content__left__container product-image-outer <?php echo $product->get_type() != 'phone_type' ? 'tablet-content__left__container__shop' : '' ?>">
+			<!-- <div class="product-image-inner"> -->
+
+			
+			<?php
+			/**
+			 * Hook: woocommerce_before_single_product_summary.
+			 *
+			 * @hooked woocommerce_show_product_sale_flash - 10
+			 * @hooked woocommerce_show_product_images - 20
+			 */
+			do_action( 'woocommerce_before_single_product_summary' );
+			?>
+			<!-- </div> -->
 		</div>
 		<?php
 		if($product->get_type() === 'phone_type') {
@@ -68,18 +71,61 @@ if ( post_password_required() ) {
 			<?php
 			}
 		} else {
+			?>
+			<div class="tablet-content__left__bottom-slider border-list-container ">
+                        <div class="border-list__items product-images-slider">
+                            <div class="swiper-wrapper">
+								<?php 
+								$attachment_ids = $product->get_gallery_image_ids();
 
+								$image_Product = wp_get_attachment_image_src( get_post_thumbnail_id( $phone_image->ID ), 'single-post-thumbnail' );
+								?>
+								<div class="border-list__item swiper-slide">
+									<img src="<?php  echo $image_Product[0]; ?>" alt="<?php the_title() ?>">
+                                </div>
+                                <?php
+								if($attachment_ids) {
+                                foreach ($attachment_ids as $attachment_id) {
+                                    $image_link = wp_get_attachment_url( $attachment_id );
+                                    
+                                    ?>
+                                    <div class="border-list__item swiper-slide">
+                                        <img src="<?php echo $image_link ?>" alt="">
+                                    </div>
+                                    <?php
+                                }}
+                                ?>
+                            </div>
+                        </div>
+                        
+                    </div>
+		<?php
 		}
 		?>
 	</div>
 
-	<div class="tablet-content__right">
+	<div class="tablet-content__right <?php echo $product->get_type() != 'phone_type' ? 'tablet-content__right__shop' : '' ?>">
 		<?php do_action('woocommerce_template_single_title') ?>
+		<?php 
+		if($product->get_type() != 'phone_type') {
+			?>
+			<?php do_action('woocommerce_template_single_add_to_cart') ?>
+			<?php do_action('sbw_wc_add_buy_now_button_single') ?>
+			<?php
+		}
+		?>
 		<div class="tablet-content__right__content">
             <div class="right-content">
-				<div class="right-content-add-cart">
-					<?php do_action('cosmic_phone_type_add_to_cart') ?>
-				</div>
+				<?php
+				if($product->get_type() === 'phone_type') {
+				?>
+					<div class="right-content-add-cart">
+						<?php do_action('cosmic_phone_type_add_to_cart') ?>
+					</div>
+				<?php
+				}
+				?>
+				
 				<?php do_action('cosmic_product_description') ?>
 			</div>
 		</div>
@@ -112,6 +158,32 @@ if ( post_password_required() ) {
 	// do_action( 'woocommerce_after_single_product_summary' );
 	?>
 </div>
+<script>
+	jQuery(document).ready(function($){
+		let swiper_product_images = new Swiper(".product-images-slider", {
+			spaceBetween: 16,
+			slidesPerView: 'auto',
+			slideToClickedSlide: true
+		});
+		var swiper2 = new Swiper(".product-slider-image", {
+			spaceBetween: 10,
+			thumbs: {
+			swiper: swiper_product_images,
+			},
+      	});
 
+	// const currentPrice = <?php echo esc_js( $product->get_price() )  ?>;
+	// const currentCurrency = <?php //echo esc_js( get_woocommerce_currency_symbol() )  ?>;
+	// function changeCountProductPrice () {
+	// 		$('body').on('change', 'input.qty', function(){
+
+	// 		})
+	// }
+	// changeCountProductPrice()
+	// console.log(currentPrice)
+	// console.log(currentCurrency)
+
+	},(jQuery))
+</script>
 <?php do_action( 'woocommerce_after_single_product' ); ?>
 

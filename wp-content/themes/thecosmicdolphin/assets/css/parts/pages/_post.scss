@@ -1,0 +1,71 @@
+.main-single-page {
+    background: url(../images/bg/blog.png) center no-repeat;
+    background-size: cover;
+}
+.post-header {
+    padding-bottom: 32px;
+}
+.post-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin: 16px 0;
+}
+.post-categories {
+    display: flex;
+    .post-category {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 4px 26px;
+        min-width: 100px;
+        height: 28px;
+        box-sizing: border-box;
+        &:last-child:not(:first-child) {
+            margin-left: 8px;
+        }
+        background-color: $white;
+        color: $black-1000;
+    }
+}
+
+.date-author-post {
+    display: flex;
+    &>div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 4px 8px;
+    }
+    .date-post {
+        font-family: 'Reckoner', sans-serif;
+        text-transform: uppercase;
+        font-weight: 600;
+        background-color: $white;
+        color: $black-1000;
+
+    }
+    .author-post {
+        border: 1px solid $white;
+        font-size: 18px;
+        
+    }
+}
+
+.post-content {
+    height: 100%;
+    max-height: 100%;
+    overflow: hidden;
+    border: 10px solid;
+    border-image: url(../images/border/border-post.svg) 0 fill;
+    padding-right: 10px;
+    padding-top: 20px;
+    box-sizing: border-box;
+    &__inner {
+        padding: 0 70px;
+        padding-bottom: 24px;
+        box-sizing: border-box;
+        max-height: 100%;
+        overflow: auto;
+    }
+}

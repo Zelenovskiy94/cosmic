@@ -6,7 +6,10 @@ get_header();
 
 
 ?>
-<main class="main-company-page tablet-container">
+<?php 
+    $background_image = get_field('background');
+?>
+<main class="main-company-page tablet-container" style="<?php echo $background_image ? 'background: url('. $background_image .''  : '' ?>">
     <div class="tablet-outer">
         <div class="tablet-inner">
             <?php echo do_action('breadcrumbs') ?>

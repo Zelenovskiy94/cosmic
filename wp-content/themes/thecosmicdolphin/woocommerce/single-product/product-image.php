@@ -37,8 +37,30 @@ $wrapper_classes   = apply_filters(
 );
 ?>
 <div class="product-slider-image">
-	<?php 
+	<!-- <?php 
 	$image_Product = wp_get_attachment_image_src( get_post_thumbnail_id( $phone_image->ID ), 'single-post-thumbnail' );
 	?>
-	<img src="<?php  echo $image_Product[0]; ?>" alt="<?php the_title() ?>">
+	<img src="<?php  echo $image_Product[0]; ?>" alt="<?php the_title() ?>"> -->
+	<div class="swiper-wrapper">
+		<?php 
+		$attachment_ids = $product->get_gallery_image_ids();
+
+		$image_Product = wp_get_attachment_image_src( get_post_thumbnail_id( $phone_image->ID ), 'single-post-thumbnail' );
+		?>
+		<div class="swiper-slide">
+			<img src="<?php  echo $image_Product[0]; ?>" alt="<?php the_title() ?>">
+		</div>
+		<?php
+		if($attachment_ids) {
+		foreach ($attachment_ids as $attachment_id) {
+			$image_link = wp_get_attachment_url( $attachment_id );
+			
+			?>
+			<div class="swiper-slide">
+				<img src="<?php echo $image_link ?>" alt="">
+			</div>
+			<?php
+		}}
+		?>
+	</div>
 </div>

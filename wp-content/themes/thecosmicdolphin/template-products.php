@@ -15,11 +15,17 @@ $phones = $products_phone->query( array(
             'field'    => 'slug',
             'terms'    => 'phone_type', 
         ),
-    )
+    ),
+    'meta_key'       => 'in_progress', 
+    'orderby'        => 'meta_value_num',
+    'order'          => 'ASC'
 ) );
 
 ?>
-<main class="main-products-page tablet-container">
+<?php 
+    $background_image = get_field('background');
+?>
+<main class="main-products-page tablet-container" style="<?php echo $background_image ? 'background: url('. $background_image .''  : '' ?>">
     <div class="tablet-outer">
         <div class="tablet-inner">
             <?php echo do_action('breadcrumbs') ?>
@@ -42,11 +48,23 @@ $phones = $products_phone->query( array(
                             <div class="swiper-wrapper">
                                 <?php
                                 foreach ($phones as $phone_item) {
+                                    $phone_item_id = $phone_item->ID;
+                                    $in_progress = get_field('in_progress', $phone_item->ID);
+                                    if($in_progress) {
+                                    ?>
+                                        <div data-id="<?php echo $phone_item->ID; ?>" class="border-list__item swiper-slide in-progress-product">
+                                            <img src="<?php echo get_template_directory_uri() ?>/assets/images/in_progress.png" alt="">
+                                            <span>In Progress</span>
+
+                                        </div>
+                                    <?php
+                                    } else {
                                     ?>
                                     <div data-id="<?php echo $phone_item->ID; ?>" class="border-list__item swiper-slide">
                                         <img src="<?php echo get_template_directory_uri() ?>/assets/images/dolphin_1.png" alt="">
                                     </div>
                                     <?php
+                                    }
                                 }
                                 ?>
                             </div>

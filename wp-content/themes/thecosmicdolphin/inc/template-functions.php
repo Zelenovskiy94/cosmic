@@ -26,6 +26,11 @@ function thecosmicdolphin_body_classes( $classes ) {
 }
 add_filter( 'body_class', 'thecosmicdolphin_body_classes' );
 
+function get_theme_svg($key) {
+    $svg = isset($GLOBALS['svgs'][$key]) ? $GLOBALS['svgs'][$key] : '';
+    return $svg;
+}
+
 
 function true_breadcrumbs(){
  
@@ -48,10 +53,31 @@ function true_breadcrumbs(){
 		if ( is_search()) {
 			the_category( ', ' ); echo $separator; echo 'Search results';
 		} elseif( is_single() ){ 
+			
+			global $post;
+			$post_type = get_post_type($post->ID);
+			if($post_type == 'product') {
+				$product = get_product($post->ID);
+				if(isset($product)) {
+					if($product->get_type() === 'phone_type') {
+						echo '<a href="' . get_permalink(36) . '">Products:</a>'; echo $separator; the_title();
+					} else {
+						the_category( ', ' ); echo $separator; the_title();
+					}
+				}
+			} else {
+				echo $separator; the_title();
+
+			}
+		
+			
+			
  
-			the_category( ', ' ); echo $separator; the_title();
+		} elseif ( is_home() ){ 
  
-		} elseif ( is_page() ){ 
+			single_post_title();
+ 
+		}  elseif ( is_page() ){ 
  
 			the_title();
  
@@ -69,3 +95,49 @@ function true_breadcrumbs(){
 }
 
 
+if ( function_exists( 'add_theme_support' ) ) { 
+    add_theme_support( 'post-thumbnails' );
+    set_post_thumbnail_size( 331, 191, true ); // default Post Thumbnail dimensions (cropped)
+}
+
+
+
+//filter posts
+
+add_action( 'wp_ajax_filter_post_category', 'posts_filter_by_category_function' ); 
+add_action( 'wp_ajax_nopriv_filter_post_category', 'posts_filter_by_category_function' );
+ 
+function posts_filter_by_category_function(){
+	
+ 
+	if( isset( $_POST[ 'categoryfilter' ] )) {
+		if($_POST[ 'categoryfilter' ] == 'all') {
+			$args = array(
+				'orderby' => 'date', 
+				'order'	=> 'DESC' 
+			);
+		} else {
+			$args[ 'tax_query' ] = array(
+				array(
+					'taxonomy' => 'category',
+					'field' => 'id',
+					'terms' => $_POST[ 'categoryfilter' ]
+				)
+			);
+		}
+	
+	}
+ 
+	query_posts( $args );
+ 
+	if ( have_posts() ) {
+      		while ( have_posts() ) : the_post();
+			// тут вывод шаблона поста, например через get_template_part()
+				get_template_part( 'template-parts/content', 'blog');
+		endwhile;
+	} else {
+		echo 'Ничего не найдено';
+	}
+ 
+	die();
+}

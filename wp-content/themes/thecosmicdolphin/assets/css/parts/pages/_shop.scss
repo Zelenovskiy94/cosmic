@@ -1,0 +1,85 @@
+.main-shop-page {
+    
+    .tablet-content {
+        flex-direction: column;
+        .shop-title {
+            height: 48px !important;
+            max-width: 227px;
+            margin-bottom: 32px;
+        
+        }
+        .shop-content {
+            max-height: calc(100% - 72px);
+            overflow: auto;
+            .products {
+                // margin: 0 -16px;
+                margin-left: -32px;
+                display: flex;
+                max-width: calc(100% + 32px);
+                width: calc(100% + 32px);
+                flex-wrap: wrap;
+                a {
+                    text-decoration: none;
+                }
+                li.product  {
+                    list-style: none;
+                    // margin: 16px;
+                    margin-left: 32px;
+                    margin-bottom: 32px;
+                    width: 224px;
+                    .product-shop-thumb {
+                        padding: 6px;
+                        padding-bottom: 3px;
+                        border: 12px solid;
+                        border-image: url(../images/border/border-image-mythology.svg) 12 ;
+                        box-sizing: border-box;
+                        .onsale {
+                            display: none;
+                        }
+                    }
+                    .product-shop-info {
+                        display: flex;
+                        height: 32px;
+                        width: 100%;
+                        margin-top: 12px;
+                        .price {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            color: $black-1000;
+                            background-color: $white;
+                            
+                            width: 72px;
+                            min-width: 72px;
+                            font-family: 'Reckoner', sans-serif;
+                            margin: 0;
+                            * {
+                                font-size: 16px;
+                                font-weight: 600;
+                            }
+                            ins {
+                                display: none;
+                            }
+                        }
+                        h2 {
+                            padding: 4px 8px;
+                            border: 1px solid $white;
+                            font-size: 18px;
+                            line-height: 20px;
+                            font-weight: 400;
+                            width: 100%;
+                            display: flex;
+                            align-items: center;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            margin: 0;
+                            color: $white;
+                            font-family: 'Rajdhani', sans-serif;
+                        }
+                    }
+                }
+            }
+        }
+    }
+ 
+}

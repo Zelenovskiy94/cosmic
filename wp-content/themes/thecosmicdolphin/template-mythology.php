@@ -5,19 +5,22 @@ Template Name: History&Mythology
 get_header();
 
 ?>
-<main class="main-mythology-page tablet-container">
+<?php 
+    $background_image = get_field('background');
+?>
+<main class="main-mythology-page tablet-container" style="<?php echo $background_image ? 'background: url('. $background_image .''  : '' ?>">
     <div class="tablet-outer">
         <div class="tablet-inner">
             <?php echo do_action('breadcrumbs') ?>
             <div class="tablet-content mythology-content">
                 <!-- <div class="mythology-content"> -->
                     <div class="mythology-left">
-                        <div class="mythology-left__image">
+                        <div class="mythology-left__image animation-active-block">
                             <img src="<?php the_field('image') ?>" alt="">
                         </div>
                         
                     </div>
-                    <div class="mythology-right">
+                    <div class="mythology-right animation-active-block">
                         <div class="hide-text">
                             <?php the_field('content') ?>
                         </div>
@@ -47,14 +50,18 @@ get_header();
     // var pageCount = Math.ceil($('.hide-text').height()/tabletContent);
     var contentLength = $('.hide-text').html().length;
     var perPageLength = Math.floor(contentLength/pageCount);
-    console.log('tabletContent: ', tabletContent)
-    console.log('hite_text: ', hite_text)
-    console.log('pageCount: ', pageCount)
-    console.log('contentLength: ', contentLength)
-    console.log('perPageLength: ', perPageLength)
+    // console.log('tabletContent: ', tabletContent)
+    // console.log('hite_text: ', hite_text)
+    // console.log('pageCount: ', pageCount)
+    // console.log('contentLength: ', contentLength)
+    // console.log('perPageLength: ', perPageLength)
     var chunks = [];
     for(i=0;i<=pageCount;i++){
-        chunks.push('<div class="swiper-slide">'+ $('.hide-text').html().substring(i*perPageLength,i*perPageLength+perPageLength) +'</div>');
+        let textContent = $('.hide-text').html().trim().substring(i*perPageLength,i*perPageLength+perPageLength)
+        if(textContent) {
+            chunks.push('<div class="swiper-slide">'+ textContent +'</div>');
+        }
+        
     }
     var paged = '' +chunks.join('')+ '';
     $('.mythology-text-content .swiper-wrapper').html(paged);
