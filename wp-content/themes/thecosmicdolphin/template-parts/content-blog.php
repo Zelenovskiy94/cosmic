@@ -25,15 +25,22 @@
 			}
 			?>
 	</div>
-	
-	<?php thecosmicdolphin_post_thumbnail(); ?>
-	
-	<div class="date-author-post">
+	<?php 
+		if(has_post_thumbnail()) {
+			thecosmicdolphin_post_thumbnail();
+		} else {
+			echo '<img src="'.get_bloginfo("template_url").'/images/img-default.png" />';
+		}
+	?>
+	<a href="<?php echo get_permalink() ?>" class="post-bottom">
+		<div class="date-author-post">
 			<div class="date-post"><?php echo get_the_date() ?></div>
 			<div class="author-post">By <?php echo get_the_author()?></div>
 		</div>
 		<?php
 			the_title( '<h4 class="post-title">', '</h4>' );
 		?>
+	</a>
+	
 
 </div><!-- #post-<?php the_ID(); ?> -->

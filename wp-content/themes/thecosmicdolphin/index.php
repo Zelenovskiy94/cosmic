@@ -23,7 +23,7 @@ get_header();
                     <h2 class="tablet-content__right__title shop-title">
                         <?php single_post_title(); ?>
                     </h2>
-					<div class="posts-outer">
+					<div class="posts-outer animation-active-block">
 						<div class="blog-posts-container">
 							<?php
 							if ( have_posts() ) :
@@ -65,12 +65,12 @@ get_header();
 					<h2 class="tablet-content__right__title shop-title">
                         <?php _e('Categories', 'thecosmicdolphins') ?>
                     </h2>
-					<div class="posts-filter-container">
+					<div class="posts-filter-container nav-menu animation-active-block">
 						<?php
 							if( $terms = get_terms( array( 'taxonomy' => 'category', 'orderby' => 'name' ) ) )  :
 						?>
 						<div class="posts-filter__by-categories">
-							<div class="filter-post__category" data-value="all">All</div>
+							<div class="filter-post__category active" data-value="all">All</div>
 							<?php 
 							foreach ( $terms as $term ) {
 								echo '<div class="filter-post__category" data-value="' . $term->term_id . '">' . $term->name . '</div>';
