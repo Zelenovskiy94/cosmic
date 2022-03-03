@@ -11,9 +11,11 @@ get_header();
     </video>
     <a class="to_product_link" href="<?php echo get_permalink( 36 ) ?>"></a>
     <div class="front-page-content">
-        <h1 class="title-in-wrap" style="max-width: 531px; margin-bottom: 32px">Safe Phone<br>
-                Privacy for everyone</h1>
-        <button class="button">Order now</button>
+        <h1 class="title-in-wrap" style="max-width: 531px; margin-bottom: 32px"><?php the_field('title') ?></h1>
+        <?php $button = get_field('button'); ?>
+        <a href="<?php echo $button['url'] ?>" class="button">
+            <?php echo $button['label']  ?>
+        </a>
     </div>
 </main>
 <?php

@@ -28,10 +28,20 @@
 		</div>
 		<?php
 			the_title( '<h1 class="post-title">', '</h1>' );
+			$my_current_lang = apply_filters( 'wpml_current_language', NULL );
+			$by_text = 'By';
+			switch($my_current_lang) {
+				case 'fr' :
+					$by_text = "Par";
+					break;
+				case 'de' :
+					$by_text = "Von";
+					break;
+			}
 		?>
 		<div class="date-author-post">
 			<div class="date-post"><?php echo get_the_date() ?></div>
-			<div class="author-post">By <?php echo get_the_author()?></div>
+			<div class="author-post"><?php echo $by_text ?> <?php echo get_the_author()?></div>
 		</div>
 		
 	</header>

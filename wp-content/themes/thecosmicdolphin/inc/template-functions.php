@@ -132,12 +132,40 @@ function posts_filter_by_category_function(){
  
 	if ( have_posts() ) {
       		while ( have_posts() ) : the_post();
-			// тут вывод шаблона поста, например через get_template_part()
 				get_template_part( 'template-parts/content', 'blog');
 		endwhile;
 	} else {
-		echo 'Ничего не найдено';
+		echo 'Posts not found';
 	}
  
 	die();
 }
+
+register_nav_menus(array(
+	'main_menu'    => 'Main menu', 
+	"languages_menu"    => 'Languages'   
+));
+add_action('languages_menu', function(){
+    wp_nav_menu( array(
+		'menu_class'=>'menu-language',
+        'theme_location'=>'languages_menu', 
+    ) );
+});
+add_action('main_menu', function(){
+    wp_nav_menu( array(
+        'theme_location'=>'main_menu', 
+    ) );
+});
+add_filter( 'wp_nav_menu_args', 'my_wp_nav_menu_args' );
+function my_wp_nav_menu_args( $args='' ){
+	$args['container'] = '';
+	return $args;
+}
+// add_filter('nav_menu_css_class' , 'special_nav_class' , 10 , 2);
+
+// function special_nav_class ($classes, $item) {
+//   if (in_array('current-menu-item', $classes) ){
+//     $classes[] = 'active ';
+//   }
+//   return $classes;
+// }

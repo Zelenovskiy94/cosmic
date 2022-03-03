@@ -5,6 +5,9 @@ window.onload = function() {
   }
 };
 jQuery(document).ready(function($){
+    $('body').on('click', '.wpml-ls-current-language>a', function(e) {
+      e.preventDefault()
+    })
     function setWidthProductSpin () {
       // let wrapperElem = $('.product-image-inner')
       let wrapperElem = $('.tablet-content__left__container .images')

@@ -14,6 +14,9 @@
 
 get_header();
 ?>
+<?php 
+    $background_image = get_field('background', 357);
+?>
 <main class="main-blog-page tablet-container" style="<?php echo $background_image ? 'background: url('. $background_image .''  : '' ?>">
     <div class="tablet-outer">
         <div class="tablet-inner">
@@ -24,6 +27,7 @@ get_header();
                         <?php single_post_title(); ?>
                     </h2>
 					<div class="posts-outer animation-active-block">
+						
 						<div class="blog-posts-container">
 							<?php
 							if ( have_posts() ) :
@@ -63,7 +67,7 @@ get_header();
                 </div>
 				<div class="tablet-content__blog__right">
 					<h2 class="tablet-content__right__title shop-title">
-                        <?php _e('Categories', 'thecosmicdolphins') ?>
+                        <?php the_field('tittle_filter', 357) ?>
                     </h2>
 					<div class="posts-filter-container nav-menu animation-active-block">
 						<?php

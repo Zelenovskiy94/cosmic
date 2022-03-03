@@ -141,11 +141,44 @@
 }
 .header-right {
     display: flex;
+    align-items: center;
     .button.button-cart {
         width: 48px;
         min-width: 0;
         margin-right: 22px;
         border-image: url(../images/border/border-cart.svg) 4 fill;
         background-color: transparent;
+    }
+}
+
+.menu-languages {
+    max-width: 25px;
+    margin-right: 26px;
+    ul {
+        li {
+            list-style: none;
+        }
+    }
+    .menu-language {
+        &>li {
+            position: relative;
+            display: flex;
+            align-items: center;
+            .sub-menu {
+                position: absolute;
+                pointer-events: none;
+                transform: scale(0);
+                opacity: 0;
+                top: 100%;
+                transition: 0.3s ease-in-out;
+            }
+            &:hover {
+                .sub-menu {
+                    pointer-events: visible;
+                    transform: scale(1);
+                    opacity: 1;
+                }
+            }
+        }
     }
 }

@@ -8,6 +8,9 @@ RewriteEngine On
 RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 RewriteBase /cosmic/
 RewriteRule ^index\.php$ - [L]
+RewriteRule ^en/wp-login.php /cosmic/wp-login.php [QSA,L]
+RewriteRule ^fr/wp-login.php /cosmic/wp-login.php [QSA,L]
+RewriteRule ^de/wp-login.php /cosmic/wp-login.php [QSA,L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /cosmic/index.php [L]

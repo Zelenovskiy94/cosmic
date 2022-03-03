@@ -27,6 +27,9 @@
 		<img src="<?php echo get_template_directory_uri() ?>/assets/images/logo.svg"/>
 	</a>
 	<div class="header-right">
+		<div class="menu-languages">
+			<?php do_action('languages_menu') ?>
+		</div>
 		<button class="button button-cart">
 			<?php echo get_theme_svg('cart_icon') ?>
 		</button>
@@ -42,18 +45,21 @@
 	
 	<div class="nav-menu-container">
 		<nav class="nav-menu">
+			<?php do_action('main_menu'); ?>
+		</nav>
+		<!-- <nav class="nav-menu">
 			<ul>
 				<li><a href="<?php echo get_permalink( 36 ) ?>">Products</a></li>
 				<li><a href="<?php echo get_permalink( 16 ) ?>">Team</a></li>
 				<li><a href="<?php echo get_permalink( 76 ) ?>">Company</a></li>
 				<li><a href="<?php echo get_permalink( 83 ) ?>">Contact Us</a></li>
-				<li><a href="#">Blog</a></li>
+				<li><a href="<?php echo get_permalink( 357 ) ?>">Blog</a></li>
 				<li><a href="<?php echo get_permalink( 6 ) ?>">Shop</a></li>
 				<li><a href="<?php echo get_permalink( 59 ) ?>">History & Mithology</a></li>
-				<li><a href="#">Community interactive</a></li>
+				<li><a href="<?php echo home_url() . '/forums' ?>">Community interactive</a></li>
 				<li><a href="#">Legal</a></li>
 			</ul>
-		</nav>
+		</nav> -->
 	</div>
 	
 </header>

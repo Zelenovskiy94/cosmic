@@ -8,7 +8,11 @@ add_action('wp_head', 'google_preconnect', 0);
 function thecosmicdolphin_scripts() {
 
     wp_enqueue_style( 'Rajdhani-font', 'https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap', array(), _S_VERSION, 'all');
-    wp_enqueue_style( 'Reckoner-font', get_template_directory_uri() . '/assets/fonts/reckoner.css', array(), _S_VERSION, 'all');
+    $my_current_lang = apply_filters( 'wpml_current_language', NULL );
+    if($my_current_lang == 'en') {
+        wp_enqueue_style( 'Reckoner-font', get_template_directory_uri() . '/assets/fonts/reckoner.css', array(), _S_VERSION, 'all');
+    }
+    
 
 
     wp_enqueue_style( 'swiper-slider-style', 'https://unpkg.com/swiper@7/swiper-bundle.min.css', array(), _S_VERSION, 'all' );
